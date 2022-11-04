@@ -15,8 +15,7 @@ In array, every location stores a single data, but linked lists store 2 jobs:
 - You need the previous reference
 - useful case: run search in two directions simultaneously
 
-#### Operation
-##### add to the head
+#### add to the head
 ```
 newest = Node()
 newest.next = head
@@ -24,7 +23,7 @@ head = neawest
 side + 1
 ```
 
-##### add to the tail
+#### add to the tail
 ```
 newest = Node()
 newest.next = null
@@ -33,14 +32,22 @@ tail = newest
 side + 1
 ```
 
-##### removing the head
+#### removing the head
 ```
 head = head.next
 side - 1
 ```
 
 ### Doubly Linked List
+- you need the previous reference
 
-Delete X
+#### deleting X
+```
 x.prev.next = x.next
 x.next.prev = x.prev
+```
+
+### When to use each type of list?
+- doubly linked list when you need to removal at various points withink the list
+- singly linked list has memory saving (pnly one reference per node), but does not enable deletion at arbitary points in list
+  
