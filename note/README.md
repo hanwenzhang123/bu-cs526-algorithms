@@ -105,7 +105,7 @@ f(n) = c          (constant)
 f(n) = c log n    (log n)
 f(n) = cn         (linear)
 f(n) = cn log n	  (n log n)
-f(n) = cn2	      (quadratic)
+f(n) = cn2	    (quadratic)
 f(n) = cnk        (polynomial)
 f(n) = cn         (exponential)
 f(n) = n!         (factorial)!
@@ -125,7 +125,7 @@ f(n) = n!         (factorial)!
 #### Factorial
 - O(n) -> invoke n+1 times while each takes O(1)
 - input size - value of n
-- # of recursive call -- n+1 -- O(n)
+- number of recursive call -- n+1 -- O(n)
 - runtime for a singel recursive call -- O(1)
 
 ### Search
