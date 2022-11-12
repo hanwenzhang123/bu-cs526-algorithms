@@ -121,6 +121,7 @@ f(n) = n!         (factorial)!
 
 ## Recursion
 - a function defined itself -> a way of implementing repeated execution of statements, where a method invokes itself, like factorial
+- call stack windup and unwinding - where recursion happened and then something happened after the recursive call. 
 
 #### Factorial
 - O(n) -> invoke n+1 times while each takes O(1)
