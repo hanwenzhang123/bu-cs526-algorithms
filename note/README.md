@@ -163,3 +163,9 @@ f(n) = n!         (factorial)!
 
 # Algorithm
 ## Insertion Sort
+
+
+# Useful Links
+[Array List vs Linked List | Which one should you use](https://www.youtube.com/watch?time_continue=1&v=M_0q6rGUsNc&feature=emb_logo)
+[Determining complexity for recursive functions (Big O notation)](https://stackoverflow.com/questions/13467674/determining-complexity-for-recursive-functions-big-o-notation)
+[Stack Class in Java and Using Deque](https://blog.devgenius.io/you-should-be-aware-of-this-if-you-are-still-using-stack-class-in-java-87716280b788)
