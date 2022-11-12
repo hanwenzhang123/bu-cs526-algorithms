@@ -130,7 +130,7 @@ f(n) = n!         (factorial)!
 
 ### Search
 - search a sequence of n elements for a target element
-- Total runtime = # of recursive calls * amount of time for one recursive call
+- Total runtime = number of recursive calls * amount of time for one recursive call
 
 #### linear search
 - Examine each element while scanning the sequence
