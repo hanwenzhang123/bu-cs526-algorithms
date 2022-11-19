@@ -160,6 +160,98 @@ f(n) = n!         (factorial)!
 - Adding is called enqueue, Removing is called dequeue
 - useful cases: Buffers in networking, Scheduling in Operating Systems
 
+## List
+- The location of an element is determined by an index, starting from index 0
+- Advantage: direct access to elements
+- Disadvantage: Adding or removing elements may require restructuring (shifting of elements) of the array and Size is fixed
+
+### Array Lists with Dynamic Array
+```java
+protected void resize(int capacity) {
+  E[ ] temp = (E[ ]) new Object[capacity];
+  for (int k=0; k < size; k++)
+    temp[k] = data[k];
+    data = temp;
+}
+```
+
+## Tree
+- Parent nodes, child nodes, sibling nodes, ancestor (root node)
+- External Nodes (Leaf Nodes) - no children - numChildren(n) == 0; 
+- Internal Nodes - have children - numChildren(n) > 0
+- Depth: If n is the root, the depth of n is 0. Otherwise, the depth of n is one plus the depth of its parent - 1 +  depth(parent(n));
+- Height: The height of a tree is the length of the longest path from the root downward to an external node. If n is a leaf, then the height of n is 0. Otherwise, the height of n is one more than the maximum of the  heights of n’s children. -  Math.max(h, 1 + height(c));
+
+### Binary Tree
+- Every node has at most two children.
+- Each child node is labeled as being a left child or a right child.
+- A left child precedes a right child in the order of children of a node
+- Proper = No only child!
+
+#### Implementation using Array
+- go to left child: multiply by 2 and add 1
+- go to right child: multiply by 2 and add 2
+
+### Tree Traversal
+- visiting all nodes in tree
+
+#### Preorder tree traversal
+- visit the root
+- visit all children
+
+```java
+preorder(n)  
+  visit n
+  for each child c in children(n)  
+    preorder(c)
+```
+
+#### Postorder tree traversal
+- visit all children (recursively)
+- visit the root
+
+```java
+postorder(n)  
+  for each child c in children(n)  
+    postorder(c)
+  visit n
+```
+
+#### breadth-first tree traversal
+- Visits all nodes at depth d before visiting nodes  at depth d + 1
+
+```java
+breadthfirst( )
+  initialize Q to contain the root of the tree  
+  while Q is not empty
+    p = Q.dequeue( )	// remove the oldest entry in Q  
+    visit p
+    for each child c in children(p)
+      Q.enqueue(c)	// add all children of p to the rear of Q
+```
+Running time
+- Each node is enqueued and dequeued once each.
+- O(n)
+
+#### inorder tree traversal
+- Visit the left subtree
+- Visit the root
+- Visit the right subtree
+```java
+inorder(n)
+  if n has a left child lc	// visit left subtree  
+           inorder(lc)
+  visit n
+  if n has a right child rc	// visit right subtree  
+           inorder(rc)
+```
+
+
+
+## Graph
+- A graph is a set of nodes and a set of edges.
+- Formally, a graph G = (V, E), where V is a set of nodes  (or vertices) and E is a set of edges.
+- Each edge connects two nodes, and is represented as (u, v), where u and v are nodes.
 
 
 # Algorithm
