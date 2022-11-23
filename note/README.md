@@ -246,17 +246,35 @@ inorder(n)
            inorder(rc)
 ```
 
-
-
 ## Graph
 - A graph is a set of nodes and a set of edges.
 - Formally, a graph G = (V, E), where V is a set of nodes  (or vertices) and E is a set of edges.
 - Each edge connects two nodes, and is represented as (u, v), where u and v are nodes.
 
 
+## Priority Queue
+- each element in a queue is associated with a key, usually keys are numbers
+- keys must have total ordering - a specific way to put keys in a linear order
+- useful cases: scheduling, operation system, routing etc
+
+### Sorted Array
+- expensive to enqueue an element 
+- add - O(n) - array iteration with shifting/creating space for the element
+- O(log n) - binary search with a linked list structure
+- dequeue (remove - O(1))
+
+### Unsorted Array
+- expensive to dequeue an element 
+- remove - O(n)
+- enqueue (add - O(1))
+
+## Heap
+- complete binary tree
+- heap-order property (minimum-oriented heap): the parent key should always be smaller than or equal to the child key.
+
+
 # Algorithm
 ## Insertion Sort
-
 
 # Useful Links
 [Array List vs Linked List | Which one should you use](https://www.youtube.com/watch?time_continue=1&v=M_0q6rGUsNc&feature=emb_logo)
