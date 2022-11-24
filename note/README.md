@@ -270,7 +270,42 @@ inorder(n)
 
 ## Heap
 - complete binary tree
-- heap-order property (minimum-oriented heap): the parent key should always be smaller than or equal to the child key.
+- heap-order property (minimum-oriented heap): the parent key should always be smaller or equal to the child key.
+- height of a heap with n entries is h = log n
+- The total number of edges is less than the total number of edges in the entire tree.
+
+#### Adding
+- up-heap bubbling - O(log n) - bubbling all the way back to the root
+- find last empty location
+- swap based on the priority with the parent
+- (current node is prior than parent - until we get the point that the child is no longer smaller than parent)
+
+#### Removing
+- O(log n) - comparison through bubbling down
+- only one place to remove, remove from the root
+- last node moves up to the root and performs down-heap bubbling 
+- until we get to the point where no longer than the child
+
+### Array-based Heap
+- no empty element in the middle of the heap
+
+### Sorting with Priorty Queue
+- O(n log n)
+
+## Map
+- store and retrieve values based on search keys 
+- a map stores (key, value) pairs
+- keys are unique
+
+Worst case
+- add: O(1)
+- get: O(n) - collision + unsorted
+
+#### Avoid collision
+
+#### Hash Code
+- 32 bits
+- string: prevent collisons when order matters
 
 
 # Algorithm
