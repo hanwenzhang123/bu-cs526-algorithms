@@ -301,11 +301,55 @@ Worst case
 - add: O(1)
 - get: O(n) - collision + unsorted
 
-#### Avoid collision
 
-#### Hash Code
+#### Avoid collision
+- when two keys mapped to the same slot in the hash table, it is called a collision
+- avoid collision for faster look up
+
+### Hash Tables
+- Hash table is an efficient implementation of a map.
+
+issues
+- the domain of keys may be much larger than actual number of elements stored in the table - waste of space
+- key may not be integers which they can not be used as indices in the table
+
+solutions
+- use a hash function that maps key to integers range [0, N-1], distributing keys evenly
+
+### Hash Code
 - 32 bits
-- string: prevent collisons when order matters
+- Polynomial hash code: used for strings or variable-length objects – prevents collisions when the order matters
+
+Java hasCode() - no good
+- the defualt hasCode only uses the internal memory address of the object - so even object with the same value will have different hascode
+- When designing a hashCode() for a user-defined class, make sure: If `x.equals(y), x.hashCode( ) = y.hashCode( )`
+
+### Compression function
+- must distribute hash code (of keys) relatively uniformly across the hash table
+
+division method - more efficient
+- i mod N
+- where i is an integer (such as a hash code) and N is the  hash table size.
+
+MAD (multiply-add-and-divide) method - better distributing keys across the hash table
+- [(ai + b) mod p] mod N,
+- where N is hash table size, p is a prime number larger  than N, and a and b are integers in [0, p – 1], a > 0.
+```
+private int hashValue(K key) {
+  return (int) ((Math.abs(key.hashCode( )*scale + shift) % prime) % capacity);
+}
+``
+
+### collision handling
+chaining
+- each slot in the table keeps an unsorted list and all keys that are mapped to the same slot are kept in the list.
+- advantage: easy to implement, get more storage for the storage that you use
+- drawback: additional storage and slower when load factcor is low
+- add: O(1)
+- get: O(n)
+
+open addressing
+- when adding a new key caused a collision, an alternative location in the table is found and the new element is stored in that location
 
 
 # Algorithm
