@@ -332,25 +332,40 @@ division method - more efficient
 - where i is an integer (such as a hash code) and N is the  hash table size.
 
 MAD (multiply-add-and-divide) method - better distributing keys across the hash table
-- [(ai + b) mod p] mod N,
-- where N is hash table size, p is a prime number larger  than N, and a and b are integers in [0, p – 1], a > 0.
-```
+- `[ (ai + b) mod p ] mod N`, where N is hash table size, p is a prime number larger than N, and a and b are integers in `[0, p – 1]`, a > 0.
+```java
 private int hashValue(K key) {
   return (int) ((Math.abs(key.hashCode( )*scale + shift) % prime) % capacity);
 }
 ``
 
 ### collision handling
-chaining
+##### chaining
 - each slot in the table keeps an unsorted list and all keys that are mapped to the same slot are kept in the list.
+- each location in your hash table is going to store an unsorted list, when I want to go back and retrieve, I would have to go through this list to to check whether the key exists.
 - advantage: easy to implement, get more storage for the storage that you use
 - drawback: additional storage and slower when load factcor is low
 - add: O(1)
-- get: O(n)
+- get: O(n) - all in the same location, then you have to search the entire list
 
-open addressing
+##### open addressing - mod order
+- all entries are stored in the hash table
 - when adding a new key caused a collision, an alternative location in the table is found and the new element is stored in that location
+- just find another location to store the key
 
+linear probing
+- if j is occupied, then just go to j+1, j+2 until an empty slot is found or all slots have been probed
+- place defucnt in the slot from which an entry is removed
+- issue: primary clustering - a cluster is a set of contiguous occupied slot, once a cluster is formed, it tends to grow
+
+quadratic probing
+- use a quadratic function to determine the next slot to probe
+- no primary clustering but can be space inefficient
+
+double probing
+- pick a prime number (smaller than n)
+
+##### load factor and efficiency
 
 # Algorithm
 ## Insertion Sort
