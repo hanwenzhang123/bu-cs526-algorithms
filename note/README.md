@@ -363,9 +363,15 @@ quadratic probing
 - no primary clustering but can be space inefficient
 
 double probing
-- pick a prime number (smaller than n)
+- avoid primary clustering, which probe sequence is determined by a secondary hash function
+- pros: tends to requires smaller probe sequence when load factor is large
+- cons: higher cost of computing the next probe location
 
 ##### load factor and efficiency
+- load factor is defined as number of entries storing over the total size of the hash table
+- a larger value of load factor means there is higher probability of collisions
+- Java uses chaining method - higher load factors result in resizing the map to maintain lower than 0.75 load factor
+
 
 # Algorithm
 ## Insertion Sort
