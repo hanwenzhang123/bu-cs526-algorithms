@@ -363,6 +363,7 @@ quadratic probing
 - no primary clustering but can be space inefficient
 
 double probing
+- h(k, i) = (h(k) + i*h’(k)) mod N
 - avoid primary clustering, which probe sequence is determined by a secondary hash function
 - pros: tends to requires smaller probe sequence when load factor is large
 - cons: higher cost of computing the next probe location
