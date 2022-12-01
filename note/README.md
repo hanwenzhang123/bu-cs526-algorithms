@@ -374,6 +374,14 @@ double probing
 - Java uses chaining method - higher load factors result in resizing the map to maintain lower than 0.75 load factor
 
 
+##
+### Huffman Code
+### Encoding
+- goal is to encode to a dictionary and maps characters to binary encoding
+
+## Dynamic Programming
+
+
 # Algorithm
 ## Insertion Sort
 
