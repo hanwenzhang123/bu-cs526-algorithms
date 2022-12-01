@@ -370,9 +370,12 @@ double probing
 
 ##### load factor and efficiency
 - load factor is defined as number of entries storing over the total size of the hash table
+- "load factor" (number of items in hash table / capacity of hash table)
 - a larger value of load factor means there is higher probability of collisions
 - Java uses chaining method - higher load factors result in resizing the map to maintain lower than 0.75 load factor
 
+##### What happens if no spots left in the hash table
+- Most implementations monitor the "load factor" (number of items in hash table / capacity of hash table) and increase the capacity when the load factor is greater than some fixed value (like 0.75). So these implementations would never run into this problem.
 
 ##
 ### Huffman Code
