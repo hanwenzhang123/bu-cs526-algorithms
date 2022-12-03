@@ -377,12 +377,57 @@ double probing
 ##### What happens if no spots left in the hash table
 - Most implementations monitor the "load factor" (number of items in hash table / capacity of hash table) and increase the capacity when the load factor is greater than some fixed value (like 0.75). So these implementations would never run into this problem.
 
-##
+## Binary Search Trees
+- each internal node stores key value pair
+- key has a total ordering
+- proper binary tree (no single child), not complete
+- O(h) - height of the tree - close to log n  most of the binary search tree - a tree is balanced
+- O(n) - a tree is a linked list
+
+### recall
+- the height of a node is the number of edges on the longest path from that node to a leaf node
+- the height of a tree is the height of the root of the tree
+- the height of a leaft node is zero
+
+### AVL tree
+- a binary search tree that satisfies height-balance property
+- for every internal node n of T, the heights of the children of n differ by at most one.
+- the unbalanced node is the parent of the ones that differ in heights.
+
+#### insertion
+- work backwards, the second we hit an unbalanced note that is when we stop
+- to fix it we do operation called trinode restructuring with a sequence called rotation
+- search and repair strategy: search a node z that is the lowest ancesteor 
+
+## Optimization
+- solution for things take too long to run
+
+### Greedy Algorithms
+- considers all options that are available at that moment and choose the best among them
+- beginning from a, select the next node which is the best choice at that moment (closest to the current node)
+
 ### Huffman Code
-### Encoding
+- data compression problem
+- minimum sized compressed version of input, then translatable back to original input
+- using the fewest number of binary digits as possible a fewest number of bits.
+
+#### Encoding
+- input is a sequence of characters, each character is encoded to a unique binary string called a codeword
 - goal is to encode to a dictionary and maps characters to binary encoding
 
-## Dynamic Programming
+#### Decoding
+- converting a codeword to the initial character
+
+#### optimal prefix code with binary tree 
+- frequent code to have short codeword
+- frequency, fixed-length, variable-length(better) using binary tree
+- Encoding: Represent each character in the data with the corresponding codeword.
+- Encoding: Convert an encoded data to the  original data. This can be done efficiently using a binary tree
+
+
+
+
+### Dynamic Programming
 
 
 # Algorithm
