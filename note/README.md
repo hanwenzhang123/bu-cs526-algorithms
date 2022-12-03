@@ -382,6 +382,7 @@ double probing
 - key has a total ordering
 - proper binary tree (no single child), not complete
 - O(h) - height of the tree - close to log n  most of the binary search tree - a tree is balanced
+- O(log n) - the height of a complete binary tree
 - O(n) - a tree is a linked list
 
 ### recall
@@ -424,14 +425,121 @@ double probing
 - Encoding: Represent each character in the data with the corresponding codeword.
 - Encoding: Convert an encoded data to the  original data. This can be done efficiently using a binary tree
 
-
-
-
 ### Dynamic Programming
+- combining solutions to subproblems like divide and conquer
+- used for optimization problems
 
+#### approach
+- bottom-up approach: problems are solved in the increasing order of size
+- each subproblems is solves once and the solution os stored in the table
 
-# Algorithm
+#### examples
+- matrix multiplication
+- longest common subsequence
+- optimal binary search tree
+
+# Sorting Algorithm
+- input is the collection of objects that can be ordered in some way
+- goal of sorting is to reorder the collection
+
 ## Insertion Sort
+- similar to the way you sort playing cards in your hands
+- The array is virtually split into a sorted and an unsorted part. 
+- Values from the unsorted part are picked and placed at the correct position in the sorted part.
+
+```python
+def insertionSort(array):
+
+   for step in range(1, len(array)):
+        key = array[step]
+        j = step - 1
+        
+        # Compare key with each element on the left of it until an element smaller than it is found
+        # For descending order, change key<array[j] to key>array[j].        
+        while j >= 0 and key < array[j]:
+            array[j + 1] = array[j]
+            j = j - 1
+        
+        # Place key at after the element just smaller than it.
+        array[j + 1] = key
+```
+
+## Heap Sort
+
+## Merge Sort
+- A divide-and-conquer algorithm
+- Divide: If input size is smaller than a certain threshold, solve it using a straightforward method. Otherwise, divide the input into two or more subproblems.
+- Conquer: Solve the subproblems recursively.
+- Combine: Merge solutions to subproblems to generate a solution to the original problem.
+
+### runtime
+- each level takes O(n)
+- there are (log n + 1) levels
+- total running time = O(n)(log n + 1) = O(n)(log n) + O(n) = O(n log n)
+
+## Quick Sort
+- Divide (partition): put element into three sequences (x is called pivot):
+```
+L: This sequence contains the elements that are less than x.
+E: This sequence contains the elements that are equal to x.
+G: This sequence contains the elements that are greater than x.
+```
+- Conquer: Recursively sort L and G.
+- Combine: Put back the elements from the three parts into S in order.
+
+### runtime
+- choosing pivot is essential
+- If partitions are always balanced, the worst-case runtime is: O(n log n)
+- Even when partitions are not completely balanced, the running time is still O(n log  n)
+- In the worst case (extremely unbalanced): This occurs if an array is already sorted and the  last element is chosen as a pivot. Running time is O(n2).
+- comparation-based sorting algorithm is at least O(n log n), no better than it
+
+## Bucket Sort
+- Sorts a sequence of elements in linear time with a constraint.
+- create bucket array with fixed size, loop through and add the element to the bucket, then loop through bucket to put it back to the original list
+
+### runtime
+- O(N) + O(N) = O(N)
+
+### Stable Sort
+- The bucket-sort is stable if the order of same element behave as queues.
+- first in first out queue order
+
+## Radix Sort
+- with fixed number of digit like sorting three digit numbers
+- Each column is sorted using a stable sorting algorithm
+- O(N) + O(N) + O(N) = O(N)
+
+## Sorting Comparison
+- O(n): bucket-sort, radix-sort 
+- O(n log n): heap-sort, quick-sort, merge-sort
+- O(n^2): insertion-sort
+
+### Insertion sort
+- When the number of elements is small (typically less  than 50), insertion-sort is very efficient.
+- Insertion-sort is very efficient for an “almost” sorted  sequence.
+
+### Heap-Sort
+- Heap-sort runs in O(n log n) in the worst case.
+- It works well on small- and medium-sized sequences.
+- Its performance is poorer than that of quick-sort and merge-sort on large sequences.
+- Heap-sort is not a stable sorting algorithm.
+
+### Merge-Sort
+- Worst-case running time is O(n log n).
+- Less attractive than heap-sort or quick-sort.
+- Merge-sort is an excellent algorithm for sorting data that resides on the disk (or storage outside the main memory), since it has good cache locality (data near each other at the beginning tends to be processed together)
+
+### Quick-Sort
+- Worst-case running time is O(n2).
+- Experimental studies showed quick-sort outperformed heap-sort and merge-sort.
+- Quick-sort has been a default algorithm as a general-purpose, in-memory sorting algorithm.
+
+### Tim-Sort
+- Tim-sort is a hybrid algorithm which uses a bottom-up merge-sort and insertion-sort.
+
+### Bucket-sort & Radix-sort
+- Excellent for sorting entries with small integer keys, character strings, or d-tuple keys from a small range.
 
 # Useful Links
 [Array List vs Linked List | Which one should you use](https://www.youtube.com/watch?time_continue=1&v=M_0q6rGUsNc&feature=emb_logo)
